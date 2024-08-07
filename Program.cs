@@ -13,6 +13,7 @@ namespace DocImageDownload
             var command_install = new Command("install", "配置环境变量");
             command_install.SetHandler(() =>
             {
+                Console.WriteLine("正在配置环境变量,请稍后 ...");
                 //自当设置环境变量
                 string path = Environment.GetEnvironmentVariable("Path", EnvironmentVariableTarget.User) ?? "";
                 if (!path.Contains(ExeDir))
@@ -28,7 +29,8 @@ namespace DocImageDownload
             var command_uninstall = new Command("uninstall", "移除环境变量");
             command_uninstall.SetHandler(() =>
             {
-                string path = Environment.GetEnvironmentVariable("Path",EnvironmentVariableTarget.User) ?? "";
+                Console.WriteLine("正在配置环境变量,请稍后 ...");
+                string path = Environment.GetEnvironmentVariable("Path", EnvironmentVariableTarget.User) ?? "";
                 if (path.Contains(ExeDir))
                 {
                     Environment.SetEnvironmentVariable("Path", path.Replace(";" + ExeDir, ""), EnvironmentVariableTarget.User);
